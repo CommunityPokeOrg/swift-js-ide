@@ -7,6 +7,20 @@ import AppKit
 import UIKit
 #endif
 
+private extension Array where Element == Int {
+    /// Index of the first element for which `predicate` does not hold —
+    /// the count of leading elements satisfying it (the array is sorted).
+    func partitioningIndex(where predicate: (Int) -> Bool) -> Int {
+        var lo = 0
+        var hi = count
+        while lo < hi {
+            let mid = (lo + hi) / 2
+            if predicate(self[mid]) { lo = mid + 1 } else { hi = mid }
+        }
+        return lo
+    }
+}
+
 #if os(macOS)
 /// NSTextView subclass that paints a line-number gutter in the left
 /// `textContainerInset` margin. Numbers live in content space, so they scroll

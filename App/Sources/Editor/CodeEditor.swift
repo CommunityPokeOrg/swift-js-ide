@@ -15,7 +15,7 @@ struct CodeEditor: NSViewRepresentable {
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeNSView(context: Context) -> NSScrollView {
-        let textView = LineNumberedTextView(frame: .zero)
+        let textView = LineNumberedTextView(frame: .zero, textContainer: nil)
         textView.palette = palette
         textView.delegate = context.coordinator
         textView.font = Self.font
