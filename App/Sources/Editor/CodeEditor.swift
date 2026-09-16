@@ -50,8 +50,8 @@ struct CodeEditor: NSViewRepresentable {
             width: 0, height: CGFloat.greatestFiniteMagnitude
         )
         textView.minSize = .zero
-        textView.maxSize = NSSize(width: .greatestFiniteMagnitude,
-                                height: .greatestFiniteMagnitude)
+        textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude,
+                                height: CGFloat.greatestFiniteMagnitude)
 
         let scrollView = NSScrollView()
         scrollView.documentView = textView
