@@ -21,6 +21,11 @@ struct CodeEditor: NSViewRepresentable {
         let layoutManager = NSLayoutManager()
         let textContainer = NSTextContainer()
         textContainer.widthTracksTextView = true
+        // A zero-width container lays out degenerate glyphs — text computes
+        // bounding rects but paints nothing.
+        textContainer.containerSize = NSSize(
+            width: 640, height: CGFloat.greatestFiniteMagnitude
+        )
         layoutManager.addTextContainer(textContainer)
         storage.addLayoutManager(layoutManager)
 
@@ -58,10 +63,6 @@ struct CodeEditor: NSViewRepresentable {
         textView.isVerticallyResizable = true
         textView.isHorizontallyResizable = false
         textView.autoresizingMask = [.width]
-        textView.textContainer?.widthTracksTextView = true
-        textView.textContainer?.containerSize = NSSize(
-            width: 0, height: CGFloat.greatestFiniteMagnitude
-        )
         textView.minSize = .zero
         textView.maxSize = NSSize(width: CGFloat.greatestFiniteMagnitude,
                                 height: CGFloat.greatestFiniteMagnitude)
