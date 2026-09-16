@@ -59,14 +59,17 @@ final class LineNumberedTextView: NSTextView {
         if ProcessInfo.processInfo.environment["POKEIDE_DEBUG_LAYOUT"] == "1",
            !didLogDraw {
             didLogDraw = true
-            let lm = layoutManager
-            let tc = textContainer
-            let attrs = textStorage?.attributes(at: 0, effectiveRange: nil) ?? [:]
-            FileHandle.standardError.write(Data(
-                "[draw] dirtyRect=\(dirtyRect) containerOrigin=\(textContainerOrigin) "
-                + "glyphs=\(lm?.numberOfGlyphs ?? -1) "
-                + "usedRect=\(tc.map { lm?.usedRect(for: $0) ?? .zero } ?? .zero) "
-                + "attrs0=\(attrs)\n".utf8))
+            var msg = "[draw] dirtyRect=\(dirtyRect)"
+            msg += " containerOrigin=\(textContainerOrigin)"
+            if let lm = layoutManager, let tc = textContainer {
+                msg += " glyphs=\(lm.numberOfGlyphs)"
+                msg += " usedRect=\(lm.usedRect(for: tc))"
+            }
+            if let attrs = textStorage?.attributes(at: 0, effectiveRange: nil) {
+                msg += " attrs0=\(attrs)"
+            }
+            msg += "\n"
+            FileHandle.standardError.write(Data(msg.utf8))
         }
         super.draw(dirtyRect)
     }
