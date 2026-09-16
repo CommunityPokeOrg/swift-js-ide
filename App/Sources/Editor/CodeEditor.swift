@@ -15,7 +15,19 @@ struct CodeEditor: NSViewRepresentable {
     func makeCoordinator() -> Coordinator { Coordinator(self) }
 
     func makeNSView(context: Context) -> NSScrollView {
-        let textView = LineNumberedTextView(frame: .zero, textContainer: nil)
+        // Explicit TextKit 1 stack — guarantees `layoutManager` exists for the
+        // gutter renderer (a nil container creates the stack lazily on macOS).
+        let storage = NSTextStorage()
+        let layoutManager = NSLayoutManager()
+        let textContainer = NSTextContainer()
+        textContainer.widthTracksTextView = true
+        layoutManager.addTextContainer(textContainer)
+        storage.addLayoutManager(layoutManager)
+
+        let textView = LineNumberedTextView(
+            frame: NSRect(x: 0, y: 0, width: 640, height: 480),
+            textContainer: textContainer
+        )
         textView.palette = palette
         textView.delegate = context.coordinator
         textView.font = Self.font
@@ -35,6 +47,7 @@ struct CodeEditor: NSViewRepresentable {
         textView.isGrammarCheckingEnabled = false
         textView.smartInsertDeleteEnabled = false
         textView.insertionPointColor = PlatformColor(palette.text)
+        textView.textColor = PlatformColor(palette.text)
         textView.backgroundColor = PlatformColor(palette.background)
         textView.drawsBackground = true
         textView.typingAttributes = [
