@@ -16,6 +16,7 @@ struct MainWindowView: View {
             SidebarView()
                 .navigationSplitViewColumnWidth(min: 200, ideal: 240, max: 320)
         } detail: {
+            #if os(macOS)
             VSplitView {
                 editorArea
                     .frame(minHeight: 200)
@@ -23,6 +24,15 @@ struct MainWindowView: View {
                     .frame(minHeight: 120, idealHeight: 200, maxHeight: 340)
             }
             .toolbar { toolbarContent }
+            #else
+            VStack(spacing: 0) {
+                editorArea
+                Divider()
+                BottomPanelView()
+                    .frame(height: 260)
+            }
+            .toolbar { toolbarContent }
+            #endif
         }
         .fileImporter(
             isPresented: $appState.isFolderPickerPresented,

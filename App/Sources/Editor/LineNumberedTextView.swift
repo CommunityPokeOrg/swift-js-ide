@@ -225,16 +225,18 @@ final class LineNumberedTextView: UITextView {
         let gutterRect = CGRect(x: bounds.minX, y: bounds.minY,
                                 width: Self.gutterWidth, height: bounds.height)
         PlatformColor(palette.gutterBackground).setFill()
-        gutterRect.fill()
+        UIRectFill(gutterRect)
         PlatformColor(palette.gutterText).withAlphaComponent(0.4).setFill()
-        CGRect(x: bounds.minX + Self.gutterWidth - 1, y: bounds.minY,
-               width: 1, height: bounds.height).fill()
+        UIRectFill(CGRect(x: bounds.minX + Self.gutterWidth - 1, y: bounds.minY,
+                          width: 1, height: bounds.height))
 
         drawLineNumbers()
     }
 
     private func drawLineNumbers() {
-        guard let layoutManager, let textContainer else { return }
+        // UITextView.layoutManager/textContainer are non-optional.
+        let layoutManager = self.layoutManager
+        let textContainer = self.textContainer
         let ns = text as NSString
         let lineCount = newlineOffsets.count + 1
         let visibleRect = bounds
