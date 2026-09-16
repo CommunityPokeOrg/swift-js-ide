@@ -68,6 +68,11 @@ final class LineNumberedTextView: NSTextView {
             if let attrs = textStorage?.attributes(at: 0, effectiveRange: nil) {
                 msg += " attrs0=\(attrs)"
             }
+            if let clip = superview, let sv = enclosingScrollView {
+                msg += " clip.frame=\(clip.frame) clip.bounds=\(clip.bounds)"
+                msg += " sv.bounds=\(sv.bounds)"
+                msg += " tvInSv=\(convert(bounds, to: sv))"
+            }
             msg += "\n"
             FileHandle.standardError.write(Data(msg.utf8))
         }
