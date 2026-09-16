@@ -115,10 +115,11 @@ final class LineNumberRulerView: NSRulerView {
               let layoutManager = textView.layoutManager,
               let textContainer = textView.textContainer else { return }
         if Self.debugLayout {
-            print("[layout] tv.frame=\(textView.frame) tv.bounds=\(textView.bounds) "
+            let msg = "[layout] tv.frame=\(textView.frame) tv.bounds=\(textView.bounds) "
                   + "tv.visible=\(textView.visibleRect) strLen=\(textView.string.count) "
                   + "container=\(textContainer.containerSize) isHidden=\(textView.isHidden) "
-                  + "inClip=\(String(describing: textView.superview))")
+                  + "inClip=\(String(describing: textView.superview))\n"
+            FileHandle.standardError.write(Data(msg.utf8))
         }
         let palette = textView.palette
 
