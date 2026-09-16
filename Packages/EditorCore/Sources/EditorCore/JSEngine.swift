@@ -131,8 +131,10 @@ public final class JavaScriptCoreEngine: JSEvaluating {
         }
         """)
 
-        func makeLogHandler(_ level: ConsoleLevel) -> @convention(block) ([JSValue]) -> Void {
-            return { [weak self] args in
+        // The bridged array must arrive as one JSValue — declaring `[JSValue]`
+        // makes JSC bridge elements to native NSStrings and crash on cast.
+        func makeLogHandler(_ level: ConsoleLevel) -> @convention(block) (JSValue) -> Void {
+            return { [weak self] value in
                 guard let self, self.generation == gen, !self.cancelled else {
                     if let ctx = JSContext.current() {
                         ctx.setObject(JSValue(newErrorFromMessage: "Execution cancelled", in: ctx),
@@ -140,7 +142,7 @@ public final class JavaScriptCoreEngine: JSEvaluating {
                     }
                     return
                 }
-                let text = args.map { $0.toString() ?? "" }.joined(separator: " ")
+                let text = (value.toArray() ?? []).map { "\($0)" }.joined(separator: " ")
                 self.emit(level, text)
             }
         }
