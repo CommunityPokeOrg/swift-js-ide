@@ -110,7 +110,7 @@ public final class JavaScriptCoreEngine: JSEvaluating {
         var exception: JSValueRef?
         let ok = JSCheckScriptSyntax(global, script, urlString, 0, &exception)
         guard !ok, let exception else { return nil }
-        let value = JSValue(jsValueRef: exception, in: context)
+        guard let value = JSValue(jsValueRef: exception, in: context) else { return nil }
         return Self.diagnostic(from: value, sourceName: name)
     }
 
