@@ -54,6 +54,17 @@ final class LineNumberedTextView: NSTextView {
         enclosingScrollView?.verticalRulerView?.needsDisplay = true
     }
 
+    private var didLogDraw = false
+    override func draw(_ dirtyRect: NSRect) {
+        if ProcessInfo.processInfo.environment["POKEIDE_DEBUG_LAYOUT"] == "1",
+           !didLogDraw {
+            didLogDraw = true
+            FileHandle.standardError.write(Data(
+                "[draw] textview draw called dirtyRect=\(dirtyRect)\n".utf8))
+        }
+        super.draw(dirtyRect)
+    }
+
     private func leadingWhitespaceOfCurrentLine() -> String {
         let ns = string as NSString
         var loc = selectedRange.location
@@ -115,9 +126,10 @@ final class LineNumberRulerView: NSRulerView {
               let layoutManager = textView.layoutManager,
               let textContainer = textView.textContainer else { return }
         if Self.debugLayout {
-            let msg = "[layout] tv.frame=\(textView.frame) tv.bounds=\(textView.bounds) "
-                  + "tv.visible=\(textView.visibleRect) strLen=\(textView.string.count) "
-                  + "container=\(textContainer.containerSize) isHidden=\(textView.isHidden) "
+            let msg = "[layout] ruler.frame=\(self.frame) tv.frame=\(textView.frame) "
+                  + "tv.bounds=\(textView.bounds) tv.visible=\(textView.visibleRect) "
+                  + "strLen=\(textView.string.count) container=\(textContainer.containerSize) "
+                  + "isHidden=\(textView.isHidden) "
                   + "inClip=\(String(describing: textView.superview))\n"
             FileHandle.standardError.write(Data(msg.utf8))
         }
