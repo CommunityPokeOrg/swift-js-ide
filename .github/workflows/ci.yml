@@ -76,11 +76,13 @@ jobs:
         run: |
           APP=$(find build/dd-mac/Build/Products/Debug -maxdepth 1 -name "PokeIDE.app" | head -1)
           echo "App bundle: $APP"
-          POKEIDE_DEMO=1 open "$APP" || true
-          sleep 10
           mkdir -p artifacts
+          POKEIDE_DEMO=1 POKEIDE_DEBUG_LAYOUT=1 "$APP/Contents/MacOS/PokeIDE" > artifacts/macos-app.log 2>&1 &
+          APP_PID=$!
+          sleep 10
           screencapture -x artifacts/screenshot-macos.png || true
-          killall PokeIDE || true
+          kill $APP_PID || true
+          cat artifacts/macos-app.log || true
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

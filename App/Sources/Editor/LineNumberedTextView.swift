@@ -107,10 +107,19 @@ final class LineNumberRulerView: NSRulerView {
         fatalError("init(coder:) is not supported")
     }
 
+    private static let debugLayout =
+        ProcessInfo.processInfo.environment["POKEIDE_DEBUG_LAYOUT"] == "1"
+
     override func drawHashMarksAndLabels(in rect: NSRect) {
         guard let textView = observedTextView,
               let layoutManager = textView.layoutManager,
               let textContainer = textView.textContainer else { return }
+        if Self.debugLayout {
+            print("[layout] tv.frame=\(textView.frame) tv.bounds=\(textView.bounds) "
+                  + "tv.visible=\(textView.visibleRect) strLen=\(textView.string.count) "
+                  + "container=\(textContainer.containerSize) isHidden=\(textView.isHidden) "
+                  + "inClip=\(String(describing: textView.superview))")
+        }
         let palette = textView.palette
 
         PlatformColor(palette.gutterBackground).setFill()
