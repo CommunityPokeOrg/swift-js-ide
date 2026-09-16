@@ -22,13 +22,12 @@ private extension Array where Element == Int {
 }
 
 #if os(macOS)
-/// NSTextView subclass that paints a line-number gutter in the left
-/// `textContainerInset` margin. Numbers live in content space, so they scroll
-/// naturally with the text.
+/// NSTextView subclass paired with `LineNumberRulerView` for line numbers.
+/// The ruler is the sanctioned AppKit path: it renders independently of the
+/// text view's draw pass and scrolls with the document automatically.
 final class LineNumberedTextView: NSTextView {
-    static let gutterWidth: CGFloat = 52
     var palette: ThemePalette = HighlightTheme.dark
-    private var newlineOffsets: [Int] = [0]
+    var newlineOffsets: [Int] = [0]
 
     override init(frame frameRect: NSRect, textContainer container: NSTextContainer?) {
         super.init(frame: frameRect, textContainer: container)
@@ -41,7 +40,7 @@ final class LineNumberedTextView: NSTextView {
     }
 
     private func configure() {
-        textContainerInset = NSSize(width: Self.gutterWidth, height: 10)
+        textContainerInset = NSSize(width: 6, height: 10)
         layoutManager?.allowsNonContiguousLayout = false
     }
 
@@ -52,6 +51,7 @@ final class LineNumberedTextView: NSTextView {
             offsets.append(i)
         }
         newlineOffsets = offsets
+        enclosingScrollView?.verticalRulerView?.needsDisplay = true
     }
 
     private func leadingWhitespaceOfCurrentLine() -> String {
@@ -89,51 +89,63 @@ final class LineNumberedTextView: NSTextView {
         scrollRangeToVisible(NSRange(location: clamped, length: 0))
         window?.makeFirstResponder(self)
     }
+}
 
-    override func draw(_ dirtyRect: NSRect) {
-        super.draw(dirtyRect)
+/// Vertical ruler that paints line numbers for `LineNumberedTextView`.
+final class LineNumberRulerView: NSRulerView {
+    static let thickness: CGFloat = 46
+    weak var observedTextView: LineNumberedTextView?
 
-        // Gutter background + separator.
-        let gutterRect = NSRect(x: bounds.minX, y: bounds.minY,
-                                width: Self.gutterWidth, height: bounds.height)
-        PlatformColor(palette.gutterBackground).setFill()
-        gutterRect.fill()
-        PlatformColor(palette.gutterText).withAlphaComponent(0.4).setFill()
-        NSRect(x: bounds.minX + Self.gutterWidth - 1, y: bounds.minY,
-               width: 1, height: bounds.height).fill()
-
-        drawLineNumbers()
+    init(textView: LineNumberedTextView, scrollView: NSScrollView) {
+        observedTextView = textView
+        super.init(scrollView: scrollView, orientation: .verticalRuler)
+        clientView = textView
+        ruleThickness = Self.thickness
     }
 
-    private func drawLineNumbers() {
-        guard let layoutManager, let textContainer else { return }
-        let ns = string as NSString
-        let lineCount = newlineOffsets.count + 1
+    required init(coder: NSCoder) {
+        fatalError("init(coder:) is not supported")
+    }
 
+    override func drawHashMarksAndLabels(in rect: NSRect) {
+        guard let textView = observedTextView,
+              let layoutManager = textView.layoutManager,
+              let textContainer = textView.textContainer else { return }
+        let palette = textView.palette
+
+        PlatformColor(palette.gutterBackground).setFill()
+        rect.fill()
+
+        let ns = textView.string as NSString
+        guard ns.length > 0 else { return }
+
+        let visibleRect = textView.visibleRect
         let glyphRange = layoutManager.glyphRange(forBoundingRect: visibleRect, in: textContainer)
         let firstVisibleChar = layoutManager.characterIndexForGlyph(at: glyphRange.location)
         let lastVisibleChar = layoutManager.characterIndexForGlyph(at: NSMaxRange(glyphRange))
 
-        // Binary search the first line index that could be visible.
-        var lineIndex = newlineOffsets.partitioningIndex { $0 < firstVisibleChar }
+        var lineIndex = textView.newlineOffsets.partitioningIndex { $0 < firstVisibleChar }
+        let lineCount = textView.newlineOffsets.count + 1
 
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: PlatformFont.monospacedSystemFont(ofSize: max(11, (font?.pointSize ?? 13) - 2), weight: .regular),
+            .font: PlatformFont.monospacedSystemFont(ofSize: 11, weight: .regular),
             .foregroundColor: PlatformColor(palette.gutterText)
         ]
 
+        let origin = convert(NSPoint.zero, from: textView)
+
         while lineIndex < lineCount {
-            let charOffset = lineIndex == 0 ? 0 : newlineOffsets[lineIndex - 1] + 1
+            let charOffset = lineIndex == 0 ? 0 : textView.newlineOffsets[lineIndex - 1] + 1
             if charOffset > lastVisibleChar || charOffset > ns.length { break }
             let glyphIndex = layoutManager.glyphIndexForCharacter(at: min(charOffset, max(0, ns.length - 1)))
-            let rect = layoutManager.boundingRect(
+            let glyphRect = layoutManager.boundingRect(
                 forGlyphRange: NSRange(location: glyphIndex, length: 0),
                 in: textContainer
             )
             let label = String(lineIndex + 1) as NSString
             let size = label.size(withAttributes: attributes)
-            let x = bounds.minX + Self.gutterWidth - size.width - 8
-            let y = rect.origin.y + textContainerInset.height
+            let x = Self.thickness - size.width - 6
+            let y = glyphRect.origin.y + origin.y + textView.textContainerInset.height
             label.draw(at: NSPoint(x: x, y: y), withAttributes: attributes)
             lineIndex += 1
         }

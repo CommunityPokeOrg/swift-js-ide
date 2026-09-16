@@ -68,6 +68,10 @@ struct CodeEditor: NSViewRepresentable {
 
         let scrollView = NSScrollView()
         scrollView.documentView = textView
+        scrollView.verticalRulerView = LineNumberRulerView(textView: textView,
+                                                          scrollView: scrollView)
+        scrollView.hasVerticalRuler = true
+        scrollView.rulersVisible = true
         scrollView.hasVerticalScroller = true
         scrollView.hasHorizontalScroller = false
         scrollView.autohidesScrollers = true
