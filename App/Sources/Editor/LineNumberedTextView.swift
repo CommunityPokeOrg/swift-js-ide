@@ -54,31 +54,6 @@ final class LineNumberedTextView: NSTextView {
         enclosingScrollView?.verticalRulerView?.needsDisplay = true
     }
 
-    private var didLogDraw = false
-    override func draw(_ dirtyRect: NSRect) {
-        if ProcessInfo.processInfo.environment["POKEIDE_DEBUG_LAYOUT"] == "1",
-           !didLogDraw {
-            didLogDraw = true
-            var msg = "[draw] dirtyRect=\(dirtyRect)"
-            msg += " containerOrigin=\(textContainerOrigin)"
-            if let lm = layoutManager, let tc = textContainer {
-                msg += " glyphs=\(lm.numberOfGlyphs)"
-                msg += " usedRect=\(lm.usedRect(for: tc))"
-            }
-            if let attrs = textStorage?.attributes(at: 0, effectiveRange: nil) {
-                msg += " attrs0=\(attrs)"
-            }
-            if let clip = superview, let sv = enclosingScrollView {
-                msg += " clip.frame=\(clip.frame) clip.bounds=\(clip.bounds)"
-                msg += " sv.bounds=\(sv.bounds)"
-                msg += " tvInSv=\(convert(bounds, to: sv))"
-            }
-            msg += "\n"
-            FileHandle.standardError.write(Data(msg.utf8))
-        }
-        super.draw(dirtyRect)
-    }
-
     private func leadingWhitespaceOfCurrentLine() -> String {
         let ns = string as NSString
         var loc = selectedRange.location
@@ -132,21 +107,10 @@ final class LineNumberRulerView: NSRulerView {
         fatalError("init(coder:) is not supported")
     }
 
-    private static let debugLayout =
-        ProcessInfo.processInfo.environment["POKEIDE_DEBUG_LAYOUT"] == "1"
-
     override func drawHashMarksAndLabels(in rect: NSRect) {
         guard let textView = observedTextView,
               let layoutManager = textView.layoutManager,
               let textContainer = textView.textContainer else { return }
-        if Self.debugLayout {
-            let msg = "[layout] ruler.frame=\(self.frame) tv.frame=\(textView.frame) "
-                  + "tv.bounds=\(textView.bounds) tv.visible=\(textView.visibleRect) "
-                  + "strLen=\(textView.string.count) container=\(textContainer.containerSize) "
-                  + "isHidden=\(textView.isHidden) "
-                  + "inClip=\(String(describing: textView.superview))\n"
-            FileHandle.standardError.write(Data(msg.utf8))
-        }
         let palette = textView.palette
 
         let ns = textView.string as NSString

@@ -6,6 +6,12 @@ Apple's embedded **JavaScriptCore** engine — no network, no external runtime.
 
 ![App icon](Design/AppIcon.png)
 
+## Screenshots
+
+| macOS | iPadOS (light) | iPadOS (dark) |
+|---|---|---|
+| ![PokeIDE on macOS](docs/screenshots/screenshot-macos.png) | ![PokeIDE on iPadOS, light](docs/screenshots/screenshot-ipad-light.png) | ![PokeIDE on iPadOS, dark](docs/screenshots/screenshot-ipad-dark.png) |
+
 ## Features
 
 - **Code editor** with line numbers, tab-to-spaces, auto-indent, and undo —
