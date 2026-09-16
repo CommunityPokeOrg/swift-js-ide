@@ -149,9 +149,6 @@ final class LineNumberRulerView: NSRulerView {
         }
         let palette = textView.palette
 
-        PlatformColor(palette.gutterBackground).setFill()
-        rect.fill()
-
         let ns = textView.string as NSString
         guard ns.length > 0 else { return }
 
