@@ -1,0 +1,577 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0613616FA45D92B60A39ABB7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3936AF3CFF75F7A90531E /* Assets.xcassets */; };
+		118128E38E1ABB26935BE2D9 /* LineNumberedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E145BFBEA73C81ED249FE /* LineNumberedTextView.swift */; };
+		22BF3AAEE23CD00F83ADD990 /* BottomPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA3D7D2C5A8DB6B57E1D4F7 /* BottomPanelView.swift */; };
+		2D391C68C290C1BA06FF162B /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC3D76ADA847993E5F5E54 /* TabBarView.swift */; };
+		2FAF3F32BB5AABEED2520740 /* MainWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E07A7A541604F70EC226 /* MainWindowView.swift */; };
+		32E0BEC91A424CE0DA550CF2 /* EditorCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5D91A02DC84085DBBD60FB4F /* EditorCore */; };
+		39B8E4B41E92EB2318B953FA /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16486ACB7BBD8F75E3CDDCD4 /* SidebarView.swift */; };
+		450F4BD4C86A1E95760DA500 /* PlatformCompat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782A89239A632771255A68E6 /* PlatformCompat.swift */; };
+		4590830F7147DEAE47FDC347 /* PlatformCompat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 782A89239A632771255A68E6 /* PlatformCompat.swift */; };
+		510DF992402154E6C867F107 /* LineNumberedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 289E145BFBEA73C81ED249FE /* LineNumberedTextView.swift */; };
+		56F53E3CED8BC80D8095766C /* TextFileDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38171E55A46D4F2BA0680CC /* TextFileDocument.swift */; };
+		594D41722A07AA83A41384C4 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9019BFD47A4C23566C887B1E /* WelcomeView.swift */; };
+		68B38E3007F7B7A88F0D0E28 /* TextFileDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = A38171E55A46D4F2BA0680CC /* TextFileDocument.swift */; };
+		69240BBEBBD948A62BC6FF98 /* EditorCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5FE3B62A9A253552513BF8B9 /* EditorCore */; };
+		6928CA9D3880013C78B3928D /* demo.js in Resources */ = {isa = PBXBuildFile; fileRef = 08581CDCDFD7DB09E97735C2 /* demo.js */; };
+		6D667D83ACF85239D05DCAFB /* PokeIDEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FC84015BAF2D7FC3FE933 /* PokeIDEApp.swift */; };
+		6EE4275375F37D4472E3D028 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3936AF3CFF75F7A90531E /* Assets.xcassets */; };
+		6F9A76AE41E62123D51ECFB8 /* demo.js in Resources */ = {isa = PBXBuildFile; fileRef = 08581CDCDFD7DB09E97735C2 /* demo.js */; };
+		78AD4F246D73DB700CC941C0 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9019BFD47A4C23566C887B1E /* WelcomeView.swift */; };
+		79433274D981409C1946CE1A /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16486ACB7BBD8F75E3CDDCD4 /* SidebarView.swift */; };
+		7BCA2F53FAD3B202B54AE06F /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB825237A3E0CD4EF25D30 /* AppState.swift */; };
+		7D919AA6D5C79C4D5D7B30EC /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFB825237A3E0CD4EF25D30 /* AppState.swift */; };
+		9DC7770C6323DFDC70595BDE /* CodeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA6C12CDF4C8B08401DC2 /* CodeEditor.swift */; };
+		A4A9E1E6CDCCD2DB58DCD152 /* PokeIDEApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F46FC84015BAF2D7FC3FE933 /* PokeIDEApp.swift */; };
+		D00B9FAB1DAFCDEBE88FDD3B /* CodeEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AFA6C12CDF4C8B08401DC2 /* CodeEditor.swift */; };
+		D90E2ED9C1D060CBD2554DFF /* BottomPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA3D7D2C5A8DB6B57E1D4F7 /* BottomPanelView.swift */; };
+		E96E92453A51F8B9AFAF0507 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9DC3D76ADA847993E5F5E54 /* TabBarView.swift */; };
+		F28F72E0316A98F1F37EAA36 /* MainWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45B6E07A7A541604F70EC226 /* MainWindowView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08581CDCDFD7DB09E97735C2 /* demo.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = demo.js; sourceTree = "<group>"; };
+		0BA3936AF3CFF75F7A90531E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		16486ACB7BBD8F75E3CDDCD4 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+		289E145BFBEA73C81ED249FE /* LineNumberedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberedTextView.swift; sourceTree = "<group>"; };
+		35AFA6C12CDF4C8B08401DC2 /* CodeEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeEditor.swift; sourceTree = "<group>"; };
+		3F48542BB0636D5392760C1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		45B6E07A7A541604F70EC226 /* MainWindowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowView.swift; sourceTree = "<group>"; };
+		782A89239A632771255A68E6 /* PlatformCompat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCompat.swift; sourceTree = "<group>"; };
+		7A3FA2CB48418A3D40B6E81C /* PokeIDE-iOS.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = "PokeIDE-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9019BFD47A4C23566C887B1E /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		9346322B51951A876EB8193A /* PokeIDE-macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PokeIDE-macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38171E55A46D4F2BA0680CC /* TextFileDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFileDocument.swift; sourceTree = "<group>"; };
+		ADFB825237A3E0CD4EF25D30 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		BB862FFF73C508BB2A77B89C /* EditorCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = EditorCore; path = Packages/EditorCore; sourceTree = SOURCE_ROOT; };
+		E60D87FAAF3B57179A2621F7 /* PokeIDE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PokeIDE.entitlements; sourceTree = "<group>"; };
+		E9DC3D76ADA847993E5F5E54 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		F46FC84015BAF2D7FC3FE933 /* PokeIDEApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeIDEApp.swift; sourceTree = "<group>"; };
+		FBA3D7D2C5A8DB6B57E1D4F7 /* BottomPanelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomPanelView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		79C2E0F10FBC9DD09CAEDCB9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32E0BEC91A424CE0DA550CF2 /* EditorCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CD59AE2404A39726BDB215F9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69240BBEBBD948A62BC6FF98 /* EditorCore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42DF58E89C2F1EA93095FF34 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F46FC84015BAF2D7FC3FE933 /* PokeIDEApp.swift */,
+				FE636940A7D695CA0C6DC5AF /* Resources */,
+				83F426C5C5BA94B0A49E66F9 /* Sources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4ED05F051CE328F242E7A32F /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				35AFA6C12CDF4C8B08401DC2 /* CodeEditor.swift */,
+				289E145BFBEA73C81ED249FE /* LineNumberedTextView.swift */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		5DC13F58D18FA32A5C9BDFA1 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				BB862FFF73C508BB2A77B89C /* EditorCore */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		83F426C5C5BA94B0A49E66F9 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4ED05F051CE328F242E7A32F /* Editor */,
+				A98313821571028A789D1B38 /* Model */,
+				A74626664AEAB2F9C8E041F8 /* Platform */,
+				C2DA9F7FE450F20DA6492EDB /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9E02A7F97A5B614241C49732 = {
+			isa = PBXGroup;
+			children = (
+				42DF58E89C2F1EA93095FF34 /* App */,
+				5DC13F58D18FA32A5C9BDFA1 /* Packages */,
+				A9424165A0A9411DABC21339 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A74626664AEAB2F9C8E041F8 /* Platform */ = {
+			isa = PBXGroup;
+			children = (
+				782A89239A632771255A68E6 /* PlatformCompat.swift */,
+			);
+			path = Platform;
+			sourceTree = "<group>";
+		};
+		A9424165A0A9411DABC21339 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7A3FA2CB48418A3D40B6E81C /* PokeIDE-iOS.app */,
+				9346322B51951A876EB8193A /* PokeIDE-macOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A98313821571028A789D1B38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ADFB825237A3E0CD4EF25D30 /* AppState.swift */,
+				A38171E55A46D4F2BA0680CC /* TextFileDocument.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C2DA9F7FE450F20DA6492EDB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FBA3D7D2C5A8DB6B57E1D4F7 /* BottomPanelView.swift */,
+				45B6E07A7A541604F70EC226 /* MainWindowView.swift */,
+				16486ACB7BBD8F75E3CDDCD4 /* SidebarView.swift */,
+				E9DC3D76ADA847993E5F5E54 /* TabBarView.swift */,
+				9019BFD47A4C23566C887B1E /* WelcomeView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FE636940A7D695CA0C6DC5AF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0BA3936AF3CFF75F7A90531E /* Assets.xcassets */,
+				08581CDCDFD7DB09E97735C2 /* demo.js */,
+				3F48542BB0636D5392760C1C /* Info.plist */,
+				E60D87FAAF3B57179A2621F7 /* PokeIDE.entitlements */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5AC97C4278B16DB00FC87322 /* PokeIDE-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C3F438A3B54E4E15BCA774DB /* Build configuration list for PBXNativeTarget "PokeIDE-iOS" */;
+			buildPhases = (
+				705F6C6DCCF98A965B9DF75D /* Sources */,
+				1C8528EAAB63F63409AEC903 /* Resources */,
+				79C2E0F10FBC9DD09CAEDCB9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PokeIDE-iOS";
+			packageProductDependencies = (
+				5D91A02DC84085DBBD60FB4F /* EditorCore */,
+			);
+			productName = "PokeIDE-iOS";
+			productReference = 7A3FA2CB48418A3D40B6E81C /* PokeIDE-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F3F8761D035051ABC70BA404 /* PokeIDE-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E1C51F16870DF1FC633378D0 /* Build configuration list for PBXNativeTarget "PokeIDE-macOS" */;
+			buildPhases = (
+				20321B39AA562DE4D5362722 /* Sources */,
+				2B6699F5D10F3F9B571B0A69 /* Resources */,
+				CD59AE2404A39726BDB215F9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "PokeIDE-macOS";
+			packageProductDependencies = (
+				5FE3B62A9A253552513BF8B9 /* EditorCore */,
+			);
+			productName = "PokeIDE-macOS";
+			productReference = 9346322B51951A876EB8193A /* PokeIDE-macOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADD3C7E3F3CAB9490FF7ABBD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+				};
+			};
+			buildConfigurationList = AAC97F08AA5BCD2D07A1564F /* Build configuration list for PBXProject "PokeIDE" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9E02A7F97A5B614241C49732;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				C73A3F00E416D51EA4C55BFF /* XCLocalSwiftPackageReference "Packages/EditorCore" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A9424165A0A9411DABC21339 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5AC97C4278B16DB00FC87322 /* PokeIDE-iOS */,
+				F3F8761D035051ABC70BA404 /* PokeIDE-macOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1C8528EAAB63F63409AEC903 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0613616FA45D92B60A39ABB7 /* Assets.xcassets in Resources */,
+				6928CA9D3880013C78B3928D /* demo.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B6699F5D10F3F9B571B0A69 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6EE4275375F37D4472E3D028 /* Assets.xcassets in Resources */,
+				6F9A76AE41E62123D51ECFB8 /* demo.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		20321B39AA562DE4D5362722 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D919AA6D5C79C4D5D7B30EC /* AppState.swift in Sources */,
+				D90E2ED9C1D060CBD2554DFF /* BottomPanelView.swift in Sources */,
+				9DC7770C6323DFDC70595BDE /* CodeEditor.swift in Sources */,
+				510DF992402154E6C867F107 /* LineNumberedTextView.swift in Sources */,
+				F28F72E0316A98F1F37EAA36 /* MainWindowView.swift in Sources */,
+				450F4BD4C86A1E95760DA500 /* PlatformCompat.swift in Sources */,
+				6D667D83ACF85239D05DCAFB /* PokeIDEApp.swift in Sources */,
+				79433274D981409C1946CE1A /* SidebarView.swift in Sources */,
+				E96E92453A51F8B9AFAF0507 /* TabBarView.swift in Sources */,
+				56F53E3CED8BC80D8095766C /* TextFileDocument.swift in Sources */,
+				78AD4F246D73DB700CC941C0 /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		705F6C6DCCF98A965B9DF75D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7BCA2F53FAD3B202B54AE06F /* AppState.swift in Sources */,
+				22BF3AAEE23CD00F83ADD990 /* BottomPanelView.swift in Sources */,
+				D00B9FAB1DAFCDEBE88FDD3B /* CodeEditor.swift in Sources */,
+				118128E38E1ABB26935BE2D9 /* LineNumberedTextView.swift in Sources */,
+				2FAF3F32BB5AABEED2520740 /* MainWindowView.swift in Sources */,
+				4590830F7147DEAE47FDC347 /* PlatformCompat.swift in Sources */,
+				A4A9E1E6CDCCD2DB58DCD152 /* PokeIDEApp.swift in Sources */,
+				39B8E4B41E92EB2318B953FA /* SidebarView.swift in Sources */,
+				2D391C68C290C1BA06FF162B /* TabBarView.swift in Sources */,
+				68B38E3007F7B7A88F0D0E28 /* TextFileDocument.swift in Sources */,
+				594D41722A07AA83A41384C4 /* WelcomeView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0CFC97EDDCC3014275E4FC03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4C1FB58DFCC6D7787218487F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		577E6D320607315DDBD972B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.communitypoke.PokeIDE;
+				PRODUCT_NAME = PokeIDE;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		682BF170D6882EA1DA85E4E1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Resources/PokeIDE.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.communitypoke.PokeIDE;
+				PRODUCT_NAME = PokeIDE;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		7ADAF44BBBD0DAB18A1BC4FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.communitypoke.PokeIDE;
+				PRODUCT_NAME = PokeIDE;
+				SDKROOT = iphoneos;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		89BEC414F9FCFD2910E91AC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = App/Resources/PokeIDE.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.communitypoke.PokeIDE;
+				PRODUCT_NAME = PokeIDE;
+				SDKROOT = macosx;
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AAC97F08AA5BCD2D07A1564F /* Build configuration list for PBXProject "PokeIDE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0CFC97EDDCC3014275E4FC03 /* Debug */,
+				4C1FB58DFCC6D7787218487F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		C3F438A3B54E4E15BCA774DB /* Build configuration list for PBXNativeTarget "PokeIDE-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				577E6D320607315DDBD972B7 /* Debug */,
+				7ADAF44BBBD0DAB18A1BC4FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		E1C51F16870DF1FC633378D0 /* Build configuration list for PBXNativeTarget "PokeIDE-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				682BF170D6882EA1DA85E4E1 /* Debug */,
+				89BEC414F9FCFD2910E91AC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		C73A3F00E416D51EA4C55BFF /* XCLocalSwiftPackageReference "Packages/EditorCore" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/EditorCore;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5D91A02DC84085DBBD60FB4F /* EditorCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EditorCore;
+		};
+		5FE3B62A9A253552513BF8B9 /* EditorCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = EditorCore;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = ADD3C7E3F3CAB9490FF7ABBD /* Project object */;
+}

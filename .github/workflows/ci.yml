@@ -1,0 +1,92 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build-test:
+    runs-on: macos-15
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode.app/Contents/Developer || true
+
+      - name: Toolchain versions
+        run: |
+          xcodebuild -version
+          swift --version
+
+      - name: Install xcodegen
+        run: brew install xcodegen
+
+      - name: Generate Xcode project
+        run: xcodegen
+
+      - name: EditorCore unit tests (SwiftPM)
+        working-directory: Packages/EditorCore
+        run: swift test
+
+      - name: Build for macOS
+        run: |
+          xcodebuild -scheme PokeIDE-macOS \
+            -destination 'platform=macOS' \
+            -derivedDataPath build/dd-mac \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Build for iPadOS Simulator
+        run: |
+          xcodebuild -scheme PokeIDE-iOS \
+            -destination 'platform=iOS Simulator,name=iPad Pro 13-inch (M4)' \
+            -derivedDataPath build/dd-ios \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: iPad Simulator screenshots (demo mode)
+        env:
+          SIMCTL_CHILD_POKEIDE_DEMO: "1"
+        run: |
+          mkdir -p artifacts
+          xcrun simctl boot "iPad Pro 13-inch (M4)" || true
+          sleep 3
+          APP=$(find build/dd-ios/Build/Products/Debug-iphonesimulator -maxdepth 1 -name "PokeIDE.app" | head -1)
+          echo "App bundle: $APP"
+          xcrun simctl install booted "$APP"
+
+          # Light appearance
+          xcrun simctl ui booted appearance light
+          xcrun simctl launch booted org.communitypoke.PokeIDE || true
+          sleep 10
+          xcrun simctl io booted screenshot artifacts/screenshot-ipad-light.png
+
+          # Dark appearance
+          xcrun simctl terminate booted org.communitypoke.PokeIDE || true
+          xcrun simctl ui booted appearance dark
+          xcrun simctl launch booted org.communitypoke.PokeIDE || true
+          sleep 8
+          xcrun simctl io booted screenshot artifacts/screenshot-ipad-dark.png
+
+      - name: macOS screenshot (best effort)
+        continue-on-error: true
+        run: |
+          APP=$(find build/dd-mac/Build/Products/Debug -maxdepth 1 -name "PokeIDE.app" | head -1)
+          echo "App bundle: $APP"
+          mkdir -p artifacts
+          POKEIDE_DEMO=1 POKEIDE_DEBUG_LAYOUT=1 "$APP/Contents/MacOS/PokeIDE" > artifacts/macos-app.log 2>&1 &
+          APP_PID=$!
+          sleep 10
+          screencapture -x artifacts/screenshot-macos.png || true
+          kill $APP_PID || true
+          cat artifacts/macos-app.log || true
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: artifacts/
+          if-no-files-found: ignore
